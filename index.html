@@ -10,15 +10,37 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1 class="text-center my-4">La Mia Libreria</h1>
+    <div class="container-fluid">
+      <div class="cartDiv">
+        <div class="cart">
+          <div class="d-flex justify-content-between align-items-center">
+            <span> <i class="bi bi-cart"></i></span>
+            <div class="cartItems">
+              <ul id="cartList"></ul>
+              <div class="card-footer">
+                <p>Totale: €<span id="cartTotal">0.00</span></p>
+              </div>
+            </div>
+            <span id="cartItemsNumber" class="badge bg-light text-dark">0</span>
+          </div>
+        </div>
+      </div>
 
-      <div
-        id="libri-container"
-        class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-1"
-      ></div>
+      <div class="container m-auto">
+        <h1 class="text-center my-4">La Mia Libreria</h1>
+        <div
+          id="libri-container"
+          class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2"
+        ></div>
+      </div>
     </div>
 
     <script
