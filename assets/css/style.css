@@ -33,6 +33,7 @@
 
 .cartItems {
   display: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   background-color: white;
   color: black;
   border: 1px solid #dc3545;
@@ -44,8 +45,10 @@
 
 .cart:hover .cartItems {
   display: block;
+  transition: all 0.5s ease;
 }
 
 .cart:hover {
   background-color: #dc3546;
+  transition: all 0.5s ease;
 }
