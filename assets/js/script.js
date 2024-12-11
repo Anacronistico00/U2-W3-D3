@@ -26,17 +26,17 @@ function caricaLibri() {
                         </div>
                     `;
 
-        const btnScarta = cardDiv.querySelector('.btnScarta');
-        btnScarta.addEventListener('click', function (e) {
-          e.preventDefault();
-          cardDiv.remove();
-        });
-
         const btnCart = cardDiv.querySelector('.btnCart');
         btnCart.addEventListener('click', (e) => {
           e.preventDefault();
           cartLocal.push(libro);
           addToCart();
+        });
+
+        const btnScarta = cardDiv.querySelector('.btnScarta');
+        btnScarta.addEventListener('click', function (e) {
+          e.preventDefault();
+          cardDiv.remove();
         });
 
         libreria.appendChild(cardDiv);
@@ -45,13 +45,12 @@ function caricaLibri() {
     })
     .catch((error) => {
       console.log(`Errore nel caricamento della libreria: `, error);
-      libreria.innerHTML = `
-        <div class="m-auto">
-            <div class="alert alert-danger text-center">
-                Impossibile caricare i libri. Riprova più tardi.
-                <p class="fw-bold">${error.message}</p>
-            </div>
-        </div>
+      libreria.innerHTML = `<div class="m-auto">
+                             <div class="alert alert-danger text-center">
+                                Impossibile caricare i libri. Riprova più tardi.
+                                <p class="fw-bold">${error.message}</p>
+                              </div>
+                            </div>
     `;
     });
 }
@@ -85,27 +84,27 @@ function addToCart() {
       'align-items-center'
     );
     cartElement.innerHTML = `
-<div class="card">
- <div class="row d-flex align-items-center">
-  <img src="${libro.img}" class="cartImg col-5" alt="Copertina ${libro.title}" />
-  <div class="card-body col-7 d-flex flex-column justify-content-between">
-    <p class="card-title">
-      ${libro.title} <br />
-      €${libro.price}
-    </p>
-    <button class="btn btn-sm btn-danger btnCartRemove" data-index="${index}">
-      <i class="bi bi-trash"></i>
-    </button>
-  </div>
-  </div>
-</div>
-`;
+                            <div class="card">
+                              <div class="row d-flex align-items-center">
+                                <img src="${libro.img}" class="cartImg col-5" alt="Copertina ${libro.title}" />
+                                <div class="card-body col-7 d-flex flex-column justify-content-between">
+                                  <p class="card-title">
+                                    ${libro.title} <br />
+                                    €${libro.price}
+                                  </p>
+                                  <button class="btn btn-sm btn-danger btnCartRemove" data-index="${index}">
+                                    <i class="bi bi-trash"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            `;
 
     cartList.appendChild(cartElement);
     totalPrice += libro.price;
   });
 
-  cartTotal.textContent = totalPrice;
+  cartTotal.textContent = totalPrice.toFixed(2);
   cartItemsNumber.textContent = cartLocal.length;
 
   document.querySelectorAll('.btnCartRemove').forEach((btn) => {
