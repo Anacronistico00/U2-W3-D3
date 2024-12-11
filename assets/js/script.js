@@ -33,7 +33,8 @@ function caricaLibri() {
         });
 
         const btnCart = cardDiv.querySelector('.btnCart');
-        btnCart.addEventListener('click', () => {
+        btnCart.addEventListener('click', (e) => {
+          e.preventDefault();
           cartLocal.push(libro);
           addToCart();
         });
@@ -59,6 +60,14 @@ let cartLocal = JSON.parse(localStorage.getItem('cartItems')) || [];
 const cartList = document.getElementById('cartList');
 const cartTotal = document.getElementById('cartTotal');
 const cartItemsNumber = document.getElementById('cartItemsNumber');
+const btnCartClear = document.getElementById('btnCartClear');
+
+btnCartClear.addEventListener('click', (e) => {
+  e.preventDefault();
+  cartLocal = [];
+  localStorage.removeItem('cartItems');
+  addToCart();
+});
 
 function addToCart() {
   localStorage.setItem('cartItems', JSON.stringify(cartLocal));
@@ -99,8 +108,8 @@ function addToCart() {
   cartTotal.textContent = totalPrice;
   cartItemsNumber.textContent = cartLocal.length;
 
-  document.querySelectorAll('.btnCartRemove').forEach((bottone) => {
-    bottone.addEventListener('click', (e) => {
+  document.querySelectorAll('.btnCartRemove').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
       const index = e.target.getAttribute('data-index');
       cartLocal.splice(index, 1);
       addToCart();

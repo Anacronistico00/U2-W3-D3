@@ -22,8 +22,7 @@
 }
 
 .cart {
-  width: 50px;
-  background-color: #dc3545;
+  background-color: #dc354669;
   color: white;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -48,5 +47,5 @@
 }
 
 .cart:hover {
-  width: 300px;
+  background-color: #dc3546;
 }

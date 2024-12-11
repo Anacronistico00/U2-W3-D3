@@ -20,16 +20,24 @@
   <body>
     <div class="container-fluid">
       <div class="cartDiv">
-        <div class="cart">
+        <div class="cart d-flex justify-content-between">
           <div class="d-flex justify-content-between align-items-center">
-            <span> <i class="bi bi-cart"></i></span>
+            <span class="mx-2 fs-3"> <i class="bi bi-cart"></i></span>
             <div class="cartItems">
-              <ul id="cartList"></ul>
+              <ul id="cartList" class="p-0"></ul>
               <div class="card-footer">
                 <p>Totale: €<span id="cartTotal">0.00</span></p>
+                <button
+                  class="btn btn-danger mt-auto btnCart w-50 mx-2"
+                  id="btnCartClear"
+                >
+                  <i class="bi bi-cart">Elimina Carrello</i>
+                </button>
               </div>
             </div>
-            <span id="cartItemsNumber" class="badge bg-light text-dark">0</span>
+            <span id="cartItemsNumber" class="badge bg-light text-dark p-3 mx-2"
+              >0</span
+            >
           </div>
         </div>
       </div>
